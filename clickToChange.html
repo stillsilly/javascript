@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #up li{
+        background:#31a670;
+    }
+    #down li{
+        background:#F16F91;
+    }
+    li{
+        float:left;
+        width:30px;
+        height:20px;      
+        margin:10px;
+        text-align:center;
+        list-style:none;
+    }
+</style>
+</head>
+<body>
+    <ul id="up">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <br><br>
+    <ul id="down">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+<script type="text/javascript">
+    function clickUp(){
+        var node=this;
+        //alert("点击了上面的按钮");
+        // if(node===this){
+        //     alert("是同一个东东")
+        // }; //alert了
+        document.getElementById("down").appendChild(node);
+        document.getElementById("down").lastChild.addEventListener("click",clickDown);
+        document.getElementById("down").lastChild.removeEventListener("click",clickUp);
+    }
+    function clickDown(){
+        var node=this;
+        //alert("点击了下面的按钮");
+        document.getElementById("up").appendChild(node);
+        document.getElementById("up").lastChild.addEventListener("click",clickUp);
+        document.getElementById("up").lastChild.removeEventListener("click",clickDown);
+    }
+
+    [].forEach.call(document.getElementById("up").getElementsByTagName("li"),function(item){
+        item.addEventListener("click",clickUp);
+    });
+
+    [].forEach.call(document.getElementById("down").getElementsByTagName("li"),function(item){
+        item.addEventListener("click",clickDown);
+    });
+</script>
+</html>
