@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #up li{
+        background:#31a670;
+    }
+    #down li{
+        background:#F16F91;
+    }
+    li{
+        float:left;
+        width:30px;
+        height:20px;      
+        margin:10px;
+        text-align:center;
+        list-style:none;
+        cursor:pointer;
+    }
+</style>
+</head>
+<body>
+    <ul id="up">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <br><br>
+    <ul id="down">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+<script type="text/javascript">
+// 1
+//     function clickUp(){
+//         var node=this;
+// //      alert("点击了上面的按钮");
+//         document.getElementById("down").appendChild(node);
+//         document.getElementById("down").lastChild.addEventListener("click",clickDown);
+//         document.getElementById("down").lastChild.removeEventListener("click",clickUp);
+//     }
+//     function clickDown(){
+//         var node=this;
+// //      alert("点击了下面的按钮");
+//         document.getElementById("up").appendChild(node);
+//         document.getElementById("up").lastChild.addEventListener("click",clickUp);
+//         document.getElementById("up").lastChild.removeEventListener("click",clickDown);
+//     }
+
+//     [].forEach.call(document.getElementById("up").getElementsByTagName("li"),function(item){
+//         item.addEventListener("click",clickUp);
+//     });
+
+//     [].forEach.call(document.getElementById("down").getElementsByTagName("li"),function(item){
+//         item.addEventListener("click",clickDown);
+//     });
+
+
+
+//2
+document.getElementById("up").addEventListener("click",function(e){
+    if(e.target && e.target.nodeName == "LI"){  //nodeName是大写
+        document.getElementById("down").appendChild(e.target);
+    }
+})
+document.getElementById("down").addEventListener("click",function(e){
+    if(e.target && e.target.nodeName == "LI"){
+        document.getElementById("up").appendChild(e.target);
+    };
+})
+
+
+//3
+// [].forEach.call(document.getElementsByTagName("ul"),function(item){
+//     item.addEventListener("click",function(e){
+//         document.getElementById((this.id=="up")?"down":"up").appendChild(e.target);
+//     })
+// })
+
+//4
+// var uls=document.getElementsByTagName("ul");
+// for (var i=0; i < uls.length; i++) {
+//     uls[i].addEventListener("click",function(e){
+//         document.getElementById((this.id=="up")?"down":"up").appendChild(e.target);        
+//     })
+// }
+
+</script>
+</html>
