@@ -81,7 +81,9 @@
 //3
 [].forEach.call(document.getElementsByTagName("ul"),function(item){
     item.addEventListener("click",function(e){
-        document.getElementById((this.id=="up")?"down":"up").appendChild(e.target);
+        if(e.target && e.target.nodeName == "LI"){
+            document.getElementById((this.id=="up")?"down":"up").appendChild(e.target);
+        }
     })
 })
 
