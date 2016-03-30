@@ -1,2 +1,2 @@
 效果：
-![](C:\Users\qianduan\Desktop\click.gif)
+![image](https://github.com/stillsilly/javascript/blob/master/images/click.gif?raw=true)
