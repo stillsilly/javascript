@@ -87,13 +87,17 @@
     })
 })
 
+
 //4
 // var uls=document.getElementsByTagName("ul");
 // for (var i=0; i < uls.length; i++) {
 //     uls[i].addEventListener("click",function(e){
-//         document.getElementById((this.id=="up")?"down":"up").appendChild(e.target);        
+//         if(e.target && e.target.nodeName == "LI"){
+//             document.getElementById((this.id=="up")?"down":"up").appendChild(e.target); 
+//         }
 //     })
 // }
+
 
 </script>
 </html>
